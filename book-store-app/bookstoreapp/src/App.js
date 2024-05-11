@@ -4,6 +4,7 @@ import BookCard from "./BookCard";
 import { useEffect, useState } from "react";
 import axios from 'axios'; 
 import { variables } from './variables';
+import AddBook from './AddBook';
 
 function App() {
   const [Books,setBooks] = useState([]);
@@ -26,6 +27,7 @@ function App() {
 
   return (
     <div className="App">
+      <AddBook />
       {Books.map((Book) => (
           <BookCard Book={Book} />
         ))}

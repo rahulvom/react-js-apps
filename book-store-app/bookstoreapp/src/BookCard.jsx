@@ -3,23 +3,14 @@ import axios from 'axios';
 import { variables } from "./variables";
 
 const BookCard = ({ Book }) => {
-// const [deleteId,setDeleteId] = useState[('')];
-
-// useEffect(()=>{
-//     setDeleteId(1);
-//   },'');
-
-    const DeleteBook = async(id) => {
-
-        alert(id);
-
-        // axios.delete(variables.API_URL+'Books/'+id)  
-        //     .then(response => {
-        //       console.log(response);
-        //     })  
-        //     .catch(function (error) {  
-        //       console.log(error);  
-        //     })  
+    const DeleteBook = async(obj) => {
+        axios.delete(variables.API_URL+'Books/'+obj.Book.Id)  
+            .then(response => {
+              console.log(response);
+            })  
+            .catch(function (error) {  
+              console.log(error);  
+            })  
       }
 
     return (
@@ -32,7 +23,7 @@ const BookCard = ({ Book }) => {
                         <div>{Book.Category}</div>
                         <div>{Book.Author}</div>
                         <p className="card-text"> Rack {Book.Rack}</p>
-                        <a href="#" className="btn btn-danger" onClick={()=> alert(1)}>Delete</a>
+                        <a href="#" className="btn btn-danger" onClick={()=> DeleteBook({Book})}>Delete</a>
                     </div>
                 </div>
             </div>
